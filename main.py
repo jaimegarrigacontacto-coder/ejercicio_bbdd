@@ -5,7 +5,11 @@ opcion = None
 
 while opcion != 0:
     print("1- Añadir carrera\n2- Actualizar carrera\n3- Ver carreras\n4- Borrar carrera\n0- Salir")
-    opcion = int(input("Selecciona opción: "))
+    opcion = input("\nSelecciona opción: ")
+    if opcion.isdigit():
+        opcion = int(opcion)
+    else:
+        print("Error. Opción no válida.")
 
     if opcion == 1:
         nombre = input("Inserta nombre de la carrera: ")
@@ -20,7 +24,14 @@ while opcion != 0:
         print(f"Se ha insertado {mycursor.rowcount} fila.")
 
     elif opcion == 2:
-        idCarrera = int(input("Inserta el ID de la carrera a actualizar: "))
+        idvalida = False
+        while idvalida is not True:
+            idCarrera = input("Inserta el ID de la carrera a actualizar: ")
+            if idCarrera.isdigit():
+                idvalida = True
+            else:
+                print("Error. ID no válida")
+        
         nuevoNombre = input("Nuevo nombre: ")
         nuevoGrado = input("Nuevo grado: ")
         nuevaRama = input("Nueva rama: ")
@@ -41,7 +52,14 @@ while opcion != 0:
             print(f"ID: {fila[0]}, Nombre: {fila[1]}, Grado: {fila[2]}, Rama: {fila[3]}")
 
     elif opcion == 4:
-        idCarrera = int(input("Inserta el ID de la carrera a borrar: "))
+        idvalida = False
+        while idvalida is not True:
+            idCarrera = input("Inserta el ID de la carrera a borrar: ")
+            if idCarrera.isdigit():
+                idvalida = True
+            else:
+                print("Error. ID no válida")
+
         sql = "DELETE FROM carreras WHERE idcarreras = %s"
         valores = (idCarrera,)
         mycursor.execute(sql, valores)
