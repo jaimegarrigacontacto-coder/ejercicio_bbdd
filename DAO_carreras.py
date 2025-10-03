@@ -1,10 +1,14 @@
 import mysql.connector
 from carrera import Carrera
 
+
+usuario = input("Escriba su nombre de usuario: ")
+passwd = input("Escriba su contraseña: ")
+
 mydb = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="123456",
+    user=usuario,
+    password=passwd,
     database="carreras"
 )
 
