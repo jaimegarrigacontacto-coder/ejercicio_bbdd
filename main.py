@@ -44,9 +44,7 @@ while opcion != 0:
         print(f"Se ha actualizado {mycursor.rowcount} fila.")
 
     elif opcion == 3:
-        sql = "SELECT * FROM carreras"
-        mycursor.execute(sql)
-        consulta = mycursor.fetchall()
+        consulta = consultaSelectAll()
         print("Lista de carreras:")
         for fila in consulta:
             print(f"ID: {fila[0]}, Nombre: {fila[1]}, Grado: {fila[2]}, Rama: {fila[3]}")
@@ -60,10 +58,7 @@ while opcion != 0:
             else:
                 print("Error. ID no válida")
 
-        sql = "DELETE FROM carreras WHERE idcarreras = %s"
-        valores = (idCarrera,)
-        mycursor.execute(sql, valores)
-        mydb.commit()
+        borrarCarrera(idCarrera)
 
         print(f"Se ha borrado {mycursor.rowcount} fila.")
 

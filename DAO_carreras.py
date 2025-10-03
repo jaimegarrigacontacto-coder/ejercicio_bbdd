@@ -8,3 +8,14 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
+
+def consultaSelectAll():
+    sql = "SELECT * FROM carreras"
+    mycursor.execute(sql)
+    return mycursor.fetchall()
+
+def borrarCarrera(idcarrera):
+    sql = "DELETE FROM carreras WHERE idcarreras = %s"
+    valores = (idcarrera,)
+    mycursor.execute(sql, valores)
+    mydb.commit()
