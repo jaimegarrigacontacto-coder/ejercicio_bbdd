@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `carreras` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `carreras`;
 -- MySQL dump 10.13  Distrib 8.0.43, for Win64 (x86_64)
 --
 -- Host: localhost    Database: carreras
@@ -28,18 +30,8 @@ CREATE TABLE `carreras` (
   `grado` varchar(45) DEFAULT NULL,
   `rama` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idcarreras`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `carreras`
---
-
-LOCK TABLES `carreras` WRITE;
-/*!40000 ALTER TABLE `carreras` DISABLE KEYS */;
-INSERT INTO `carreras` VALUES (1,'Ingenieria Industrial','7','norte'),(2,'Arquitectura','Arquitectura 2','Jaime'),(3,'Derecho','10','este');
-/*!40000 ALTER TABLE `carreras` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -50,4 +42,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-03 16:33:33
+-- Dump completed on 2025-10-03 16:57:22
