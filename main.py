@@ -15,11 +15,7 @@ while opcion != 0:
         nombre = input("Inserta nombre de la carrera: ")
         grado = input("Inserta el grado de la carrera: ")
         rama = input("Inserta la rama de la carrera: ")
-        carrera = Carrera(nombre, grado, rama)
-        sql = "INSERT INTO carreras (nombre, grado, rama) VALUES (%s, %s, %s)"
-        valores = (carrera.getNombre(), carrera.getGrado(), carrera.getRama())
-        mycursor.execute(sql, valores)
-        mydb.commit()
+        setAñadir(nombre, grado, rama)
 
         print(f"Se ha insertado {mycursor.rowcount} fila.")
 
@@ -35,11 +31,7 @@ while opcion != 0:
         nuevoNombre = input("Nuevo nombre: ")
         nuevoGrado = input("Nuevo grado: ")
         nuevaRama = input("Nueva rama: ")
-        carrera = Carrera(nuevoNombre, nuevoGrado, nuevaRama)
-        sql = "UPDATE carreras SET nombre = %s, grado = %s, rama = %s WHERE idcarreras = %s"
-        valores = (carrera.getNombre(), carrera.getGrado(), carrera.getRama(), idCarrera)
-        mycursor.execute(sql, valores)
-        mydb.commit()
+        actualizarCarrera(nuevoNombre, nuevoGrado, nuevaRama, idCarrera)
 
         print(f"Se ha actualizado {mycursor.rowcount} fila.")
 
